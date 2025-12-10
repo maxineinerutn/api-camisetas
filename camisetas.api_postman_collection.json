@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "Camisetas API - FINAL",
+    "_postman_id": "c2c79c38-83e2-4b71-8ff3-f16be6a3b333",
+    "description": "Colección para probar la API CRUD de camisetas con paginación, subida de archivo y MongoDB.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET - Listar camisetas (paginado)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/camisetas?page=1&per_page=5",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "camisetas"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "per_page",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET - Obtener camiseta por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/camisetas/{{id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "camisetas",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST - Crear camiseta",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "marca",
+              "value": "Nike",
+              "type": "text"
+            },
+            {
+              "key": "talle",
+              "value": "M",
+              "type": "text"
+            },
+            {
+              "key": "precio",
+              "value": "45000",
+              "type": "text"
+            },
+            {
+              "key": "foto",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/camisetas",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "camisetas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT - Modificar camiseta",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "marca",
+              "value": "Adidas",
+              "type": "text"
+            },
+            {
+              "key": "talle",
+              "value": "L",
+              "type": "text"
+            },
+            {
+              "key": "precio",
+              "value": "50000",
+              "type": "text"
+            },
+            {
+              "key": "foto",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/camisetas/{{id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "camisetas",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE - Eliminar camiseta",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/camisetas/{{id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "camisetas",
+            "{{id}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "id",
+      "value": "REEMPLAZAR_ID",
+      "type": "string"
+    }
+  ]
+}
