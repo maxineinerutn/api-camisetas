@@ -30,16 +30,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // ----------- DATABASE ----------
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/camisetas";
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("MongoDB conectado correctamente"))
+  .catch(err => console.error("Error conectando a MongoDB:", err));
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("MongoDB conectado"))
-.catch(err => {
-  console.error("Error conectando MongoDB:", err);
-  process.exit(1);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Servidor escuchando en puerto ${process.env.PORT}`);
 });
 
 // ----------- ENDPOINTS ----------
